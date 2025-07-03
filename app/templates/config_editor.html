@@ -935,7 +935,17 @@ endblock %} {% block head_extra_styles %}
           />
           <small class="text-gray-500 mt-1 block">Vertex Express API的基础URL</small>
         </div>
- 
+        <!-- 智能路由配置 -->
+        <div class="mb-6">
+          <label class="flex items-center">
+            <input type="checkbox" id="URL_NORMALIZATION_ENABLED" name="URL_NORMALIZATION_ENABLED"
+              class="mr-2 rounded" />
+            <span class="font-semibold text-gray-700">启用智能路由映射</span>
+          </label>
+          <small class="text-gray-500 mt-1 block">
+            自动将客户端的各种URL格式映射到正确的API端点
+          </small>
+        </div>
         <!-- 最大失败次数 -->
         <div class="mb-6">
           <label
@@ -1299,7 +1309,7 @@ endblock %} {% block head_extra_styles %}
                         </div> -->
           <small class="text-gray-500 mt-1 block"
             >为每个思考模型设置预算（整数，最大值
-            24576），此项与上方模型列表自动关联。</small
+            32767），此项与上方模型列表自动关联。</small
           >
         </div>
         <!-- 安全设置 -->
@@ -2355,7 +2365,7 @@ endblock %} {% block head_extra_styles %}
         let val = this.value.replace(/[^0-9]/g, "");
         if (val !== "") {
           val = parseInt(val, 10);
-          if (val > 24576) val = 24576;
+          if (val > 32767) val = 32767;
         }
         this.value = val;
 
